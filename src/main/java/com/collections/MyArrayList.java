@@ -1,6 +1,7 @@
 package com.collections;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class MyArrayList<T> extends MyAbstractList<T> {
 
@@ -113,5 +114,9 @@ public class MyArrayList<T> extends MyAbstractList<T> {
 
     public Object[] toArray() {
         return array;
+    }
+
+    public boolean contains(T val) {
+        return Stream.of(array).anyMatch(x -> x.equals(val));
     }
 }

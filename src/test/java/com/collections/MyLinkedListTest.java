@@ -15,7 +15,9 @@ public class MyLinkedListTest {
 
     @Test
     public void get() {
-        add();
+        String val = "test";
+        myLinkedList.add(val);
+        assertEquals(val, myLinkedList.get(myLinkedList.getSize() - 1));
     }
 
     @Test

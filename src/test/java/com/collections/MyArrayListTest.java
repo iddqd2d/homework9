@@ -6,6 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class MyArrayListTest {
     private MyList myArrayList;
@@ -34,9 +35,9 @@ public class MyArrayListTest {
 
     @Test
     public void remove() {
-        int expectedSize = myArrayList.getSize();
-        myArrayList.add("One");
-        assertNotEquals(expectedSize, myArrayList.getSize());
+        myArrayList.add("One").add("Two");
+        myArrayList.remove(0);
+        assertFalse(((MyArrayList)myArrayList).contains("One"));
     }
 
     @Test
