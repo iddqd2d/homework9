@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class MyArrayList<T> extends MyAbstractList<T> {
 
-    private Object[] array;
     private static final int DEFAULT_CAPACITY = 10;
     private static final Object[] EMPTY_ARRAY = {};
+    private Object[] array;
 
     public MyArrayList() {
         array = new Object[DEFAULT_CAPACITY];
@@ -98,5 +98,20 @@ public class MyArrayList<T> extends MyAbstractList<T> {
             str.append("[" + i + "] => " + array[i] + "\n");
         }
         return str.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        return (Arrays.equals(array, ((MyArrayList) obj).toArray()));
+    }
+
+    public Object[] toArray() {
+        return array;
     }
 }

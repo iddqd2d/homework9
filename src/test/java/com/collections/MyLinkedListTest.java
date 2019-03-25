@@ -3,11 +3,10 @@ package com.collections;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class MyLinkedListTest {
-    MyLinkedList myLinkedList;
+    MyList myLinkedList;
 
     @Before
     public void setUp() throws Exception {
@@ -40,5 +39,6 @@ public class MyLinkedListTest {
         int expectedSize = myLinkedList.getSize();
         myLinkedList.clear();
         assertFalse(expectedSize == myLinkedList.getSize());
+        assertTrue(myLinkedList.getSize() == 0);
     }
 }

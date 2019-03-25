@@ -80,4 +80,19 @@ public class MyStack<T> {
         }
         return str.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        return (Arrays.equals(array, ((MyStack) obj).toArray()));
+    }
+
+    public Object[] toArray() {
+        return array;
+    }
 }

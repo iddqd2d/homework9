@@ -8,26 +8,26 @@ import static org.junit.Assert.assertNotEquals;
 
 
 public class MyStackTest {
-    MyStack myStack;
+    MyStack<String> myStack;
 
     @Before
     public void setUp() throws Exception {
-        myStack = new MyStack();
+        myStack = new MyStack<>();
+        myStack.push("test");
     }
 
     @Test
     public void push() {
-        String expectedValue = "test";
+        String expectedValue = "test1";
         MyStack expectedStack = new MyStack();
         expectedStack.push(expectedValue);
         myStack.push(expectedValue);
-        assertNotEquals(expectedStack, myStack);
+        assertEquals(expectedStack, myStack);
         assertEquals(expectedValue, myStack.peek());
     }
 
     @Test
     public void peek() {
-        push();
         String expectedValue = "test2";
         myStack.push(expectedValue);
         assertEquals(expectedValue, myStack.peek());
@@ -35,9 +35,9 @@ public class MyStackTest {
 
     @Test
     public void pop() {
-        peek();
         int expectedSize = myStack.getSize();
-        myStack.pop();
+        String expectedElement = myStack.peek();
+        assertEquals(expectedElement, myStack.pop());
         assertNotEquals(expectedSize, myStack.getSize());
     }
 }

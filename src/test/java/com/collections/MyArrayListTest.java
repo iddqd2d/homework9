@@ -7,8 +7,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-public class MyArrayListTest  {
-    private MyArrayList myArrayList;
+public class MyArrayListTest {
+    private MyList myArrayList;
 
     @Before
     public void setUp() throws Exception {
@@ -25,10 +25,10 @@ public class MyArrayListTest  {
     @Test
     public void add() {
         String value = "test";
-        MyArrayList expectedList = new MyArrayList();
+        MyList expectedList = new MyArrayList();
         expectedList.add(value);
         myArrayList.add(value);
-        assertNotEquals(expectedList, myArrayList);
+        assertEquals(expectedList, myArrayList);
         assertEquals(myArrayList.add(value), myArrayList);
     }
 
@@ -45,6 +45,6 @@ public class MyArrayListTest  {
         int expectedSize = myArrayList.getSize();
         myArrayList.clear();
         assertNotEquals(expectedSize, myArrayList.getSize());
-        assertTrue(myArrayList.isEmpty());
+        assertTrue(((MyArrayList) myArrayList).isEmpty());
     }
 }
